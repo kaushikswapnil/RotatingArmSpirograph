@@ -52,13 +52,14 @@ void keyPressed()
 void CreateArms()
 {
   g_Arms = new ArrayList<Arm>();
-  int numArms = (int)random(3, 7);
+  int numArms = (int)random(3, 6);
   
-  g_Arms.add(new Arm(new PVector(width/2, height/2), random(50.0f, 90.0f), random(-PI, 0), random(0, PI), 400));
+  g_Arms.add(new Arm(new PVector(width/2, height/2), random(50.0f, 90.0f), random(-PI, 0), random(0, PI), 500));
   for(int iter = 1; iter < numArms; ++iter)
   {
    float sign = random(1.0) < 0.5f ? -1.0f : 1.0f;
-   g_Arms.add(new Arm(g_Arms.get(iter-1).GetEndPoint(), random(40.0f, 140.0f), random(-PI, 0), random(0, PI), abs(400 + (int)(iter*150*sign)))); 
+   g_Arms.add(new Arm(g_Arms.get(iter-1).GetEndPoint(), random(40.0f, 140.0f), random(-PI, 0), random(0, PI), abs(500 + (int)(iter*100*sign))));
+   //g_Arms.add(new Arm(g_Arms.get(iter-1).GetEndPoint(), random(20.0f, 120.0f), random(-PI, 0), random(0, PI), 100 + (iter * 100)));
   }
   
   background(0);
